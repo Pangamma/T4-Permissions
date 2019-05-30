@@ -21,7 +21,8 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
   * No IO delays
 * Secure
   * It needs to work! 
-
+ 
+ 
 ## Features ##
 * Central configuration file makes code easy to maintain and review
 * Restrict features by permission instead of by role(s)
@@ -32,8 +33,10 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
 * O(1) look-up time once compiled.
 * Uses an Enum pattern so developers can take advantage of autocomplete in their IDE’s.
 
+
 ## Why I created the T4-Permission system ##
 I was browsing through the code one day when I realized our developers were struggling to organize our growing RBAC system. It was a mess. And the logic was brittle as well. A few examples of what I was seeing:
+
 
 ```CSHTML 
 <!-- CSHTML -->
@@ -81,6 +84,17 @@ public ActionResult Edit(int id)
 }
 
 ```
+
+```C#
+// From somewhere in the C# code.
+if (!(HttpContext.Current?.User.IsInRole("Admin") 
+|| HttpContext.Current?.User.IsInRole("Editor") 
+|| HttpContext.Current?.User.IsInRole("CEO"))){
+    // have some kind of unauthorized response here, or 
+    // perform unauthorized type logic
+}
+```
+
 I was working on one of our websites when I noticed some particularly ugly code surrounding RBACthe developers on our team were struggli
 In reality, we don't really care about the user's role. We care about what that role can do.
 H
