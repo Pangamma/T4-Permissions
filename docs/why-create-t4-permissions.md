@@ -69,9 +69,9 @@ As you're going through this hoard of info <b>the intentions of each if/else blo
 
 So the code is a mess. It's difficult to maintain. It's confusing and ambiguous. 
 
-Let's fix it. 
+[Let's fix it.](docs/fixing-the-issues.md)
 
-![Tony smashing a wall](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/tony-smashing-wall.gif)
+![Tony Stark with a wrench](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/lets-fix-it-2.png)
 
 
 I was working on one of our websites when I noticed some particularly ugly code surrounding RBACthe developers on our team were struggli
