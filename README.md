@@ -1,5 +1,7 @@
 # Project Description
-T4-Permissions is a light-weight and powerful role based access control system that uses permissions instead of roles for controlling access. The solution was created to simplify role-based-access-control / authentication and give more control over individual permissions. Before T4-Permissions, I was seeing a lot of bad code and it was clear that we needed a more maintainable solution than just checking roles seemingly arbitrarily all over the solution. 
+T4-Permissions is a powerful and efficient light-weight RBAC (role based access control) system that uses permissions instead of roles for controlling access. The implementation in this example uses the T4 templating engine and C# to create the permission classes for an ASP.NET website. 
+
+Before T4-Permissions, I was seeing a lot of bad code and it was clear that we needed a more maintainable solution than just checking roles seemingly arbitrarily all over the solution. 
 
 ## Goals ##
 * Easy to use
@@ -31,7 +33,7 @@ T4-Permissions is a light-weight and powerful role based access control system t
 * Uses an Enum pattern so developers can take advantage of autocomplete in their IDE’s.
 
 ## Why I created the T4-Permission system ##
-
+I was working on one of our websites when I noticed some particularly ugly code surrounding RBACthe developers on our team were struggli
 In reality, we don't really care about the user's role. We care about what that role can do.
 
 ```C# 
