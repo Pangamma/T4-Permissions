@@ -1,0 +1,48 @@
+﻿<#@ include file="Permissions.ttinclude" #>
+<#+ 
+public static class Configuration
+{
+	public static readonly string Namespace = "ImagineBrownBag";
+	public static readonly string EnumName = "Permissions";
+    public static readonly bool EnableWebCode = true;
+	public static readonly bool EnableApiControllerAttribute = false;
+	public static readonly bool EnableMvcControllerAttribute = true;
+
+    public static readonly object Nodes = new
+    {
+		CanDoFoo = "foo.do",
+		CanAdjustTempurature = "tempurature.adjust",
+		CanViewTempurature = "tempurature.view",
+		CanWatchTV = "entertainment.tv.watch",
+		CanChangeTvVolume = "entertainment.tv.change.volume",
+		CanChangeTvChannel = "entertainment.tv.change.channel",
+		CanPlayVideoGames = "entertainment.videogames.play",
+		CanWatchOtherPeoplePlayVideoGames = "entertainment.videogames.view",
+    };
+
+    public static System.Collections.Generic.Dictionary<string, string[]> ConfigureRolePermissions()
+    {
+        var perms = new System.Collections.Generic.Dictionary<string, string[]>();
+
+        perms["Parent"] = new string[]{"*"};
+
+        perms["Student"] = new string[]{
+			"tempurature.*"
+		};
+
+        perms["Student without homework"] = new string[]{
+			"entertainment.tv.*",
+			"entertainment.videogames.*",
+			"tempurature.*"
+		};
+
+        perms["Baby"] = new string[]
+		{
+			"entertainment.tv.watch",
+			"tempurature.view"
+		};
+
+        return perms;
+    }
+}
+#>
