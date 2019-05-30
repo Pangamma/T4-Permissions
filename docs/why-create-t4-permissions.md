@@ -69,6 +69,6 @@ As you're going through this hoard of info <b>the intentions of each if/else blo
 
 ### So the code is a mess. It's difficult to maintain, confusing, and ambiguous. ###
 
-[Let's fix it.](docs/fixing-the-issues.md)
+[Let's fix it.](fixing-the-issues.md)
 
 ![Tony Stark with a wrench](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/lets-fix-it-2.png)
