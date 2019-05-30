@@ -40,7 +40,6 @@ public ActionResult Publish(SomeViewModel model)
 }
 
 [HttpGet]
-[ValidateAntiForgeryToken]
 [Authorize(Roles = "Admin,Editor,CEO")]
 public ActionResult Edit(int id)
 {
