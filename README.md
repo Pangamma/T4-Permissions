@@ -33,9 +33,57 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
 * Uses an Enum pattern so developers can take advantage of autocomplete in their IDE’s.
 
 ## Why I created the T4-Permission system ##
+I was browsing through the code one day when I realized our developers were struggling to organize our growing RBAC system. It was a mess. And the logic was brittle as well. A few examples of what I was seeing:
+
+```CSHTML 
+<!-- CSHTML -->
+
+@if (HttpContext.Current?.User.IsInRole("Admin") 
+|| HttpContext.Current?.User.IsInRole("Editor") 
+|| HttpContext.Current?.User.IsInRole("CEO")){
+    <button type="button">Publish</button>
+}
+
+@if (HttpContext.Current?.User.IsInRole("Admin") 
+|| HttpContext.Current?.User.IsInRole("Editor") 
+|| HttpContext.Current?.User.IsInRole("CEO")
+|| HttpContext.Current?.User.IsInRole("Writer")){
+    <button type="button">Edit</button>
+}
+
+@if (HttpContext.Current?.User.IsInRole("Admin") == false){
+    <span>I'm sorry Dave. I can't let you do that, Dave.</span>
+}
+
+```
+```C#
+// C# Controller 
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+[Authorize(Roles = "Admin,Editor,CEO")]
+public ActionResult Publish(SomeViewModel model)
+{
+    // Some publishing logic here
+    return View();
+}
+
+[HttpGet]
+[ValidateAntiForgeryToken]
+[Authorize(Roles = "Admin,Editor,CEO")]
+public ActionResult Edit(int id)
+{
+    // Note how the roles are out of sync with the view logic. 
+    // Probably because a new role was added since the feature was first added
+    // and the maintaining developer didn't know about every single place that needed
+    // to be edited to enforce consistent security settings.
+    return View();
+}
+
+```
 I was working on one of our websites when I noticed some particularly ugly code surrounding RBACthe developers on our team were struggli
 In reality, we don't really care about the user's role. We care about what that role can do.
-
+H
 ```C# 
 // Rather than listing individual roles,
 this.User.IsInRole("Admin") || this.User.IsInRole("Editor") || this.User.IsInRole("CEO")
