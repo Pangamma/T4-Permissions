@@ -11,8 +11,9 @@ T4-Permissions is a permissions system that allows developers to manage expandin
 * O(1) look-up time once compiled.
 * Uses an Enum pattern so developers can take advantage of autocomplete in their IDE’s.
 
-## Why I created the project ##
-In reality, we don't really care about the user's role. We care about what that role can do. 
+## Why I created the T4-Permission system ##
+
+In reality, we don't really care about the user's role. We care about what that role can do.
 
 ```C# 
 // Rather than listing individual roles,
@@ -23,6 +24,8 @@ Permissions.HasPermission(Permissions.CanPublishContent)
 ```
 
 The first snippet shows what people usually do when checking if a user can access a feature. When systems scale this approach gets messy. It's too verbose, it isn't clear which feature is being unlocked, and it is prone to human error. The second snippet shows a better alternative. In the second snippet we immediately know which feature is being unlocked. And we don't have to worry about remembering which roles have access to which features. The centralized configuration file takes care of all that for us. 
+
+
 
 The second snippet shows why the default solution needs improvement. It's too verbose. It isn't clear what feature is being unlocked. And if you ever want to know what the difference is between an "Admin" and an "Editor" you will have to 
 Before T4-Permissions we would scan through code files looking for 
