@@ -1,5 +1,19 @@
 # Project Description
-T4-Permissions is a permissions system that allows developers to manage expanding complexity with ease. The solution was created to simplify role-based-access-control / authentication and give more control over individual permissions. Before T4-Permissions, I was seeing a lot of bad code and it was clear that we needed a more maintainable solution than just checking roles seemingly arbitrarily all over the solution. 
+T4-Permissions is a light-weight and powerful role based access control system that uses permissions instead of roles for controlling access. The solution was created to simplify role-based-access-control / authentication and give more control over individual permissions. Before T4-Permissions, I was seeing a lot of bad code and it was clear that we needed a more maintainable solution than just checking roles seemingly arbitrarily all over the solution. 
+
+## Goals ##
+* Easy to use
+  * Combine role checks into a single call. Can the user do the action or not?
+  * Autocomplete for IDE to avoid mistakes and speed up development
+  * Determine which roles can do which actions
+  * Intuitive attributes and utility methods
+* Easy to configure
+  * Wildcard permission nodes
+  * Config is centralized to a single file
+  * Easy to change how nodes are organized
+* Fast and efficient
+  * Look-up time is <# Roles> * O(1)
+  * No IO delays
 
 ## Features ##
 * Central configuration file makes code easy to maintain and review
