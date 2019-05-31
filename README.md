@@ -38,9 +38,7 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
 (Why I created the T4-Permission system)
 I was browsing through the code one day when I realized our developers were struggling to organize our growing RBAC system. It was a mess. And the logic was brittle as well. A few examples of what I was seeing:
 
-![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/duplicate-code-duplicate-code-everywhere.jpg)
-
-
+### CSHTML ###
 ```CSHTML 
 <!-- CSHTML -->
 
@@ -63,6 +61,7 @@ I was browsing through the code one day when I realized our developers were stru
 }
 
 ```
+### C# Controller ###
 ```C#
 // C# Controller 
 
@@ -88,6 +87,7 @@ public ActionResult Edit(int id)
 
 ```
 
+### C# Code ###
 ```C#
 // From somewhere in the C# code.
 if (!(HttpContext.Current?.User.IsInRole("Admin") 
@@ -97,6 +97,14 @@ if (!(HttpContext.Current?.User.IsInRole("Admin")
     // perform unauthorized type logic
 }
 ```
+
+### TL;DR ###
+![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/duplicate-code-duplicate-code-everywhere.jpg)
+
+* Does not scale well
+* Easy to miss things as system expands
+* Could add variables to the view model, but the “OR” logic still remains.
+* Very verbose
 
 Every time we wanted to add a new feature, we were having to add a new set of these role lists. The lists get longer and longer, and the risk of any of the checks falling out of sync increases every time. Then business asks for a new role with all the features of <b>X</b>, but also a new feaure called <b>Z</b>. Should be easy except <b>how do you even know what X can do?</b> The only way to figure it out is to do a <b>full text search</b> on the entire solution for any mention of that role and then making sure you're adding the new role to all of those places. 
 
