@@ -21,3 +21,73 @@ Before T4-Permissions we would scan through code files looking for
 
 It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a single configuration file. 
 
+
+
+
+
+```diff
+<!-- CSHTML -->
+
+- @if (HttpContext.Current?.User.IsInRole("Admin") 
+- || HttpContext.Current?.User.IsInRole("Editor") 
+- || HttpContext.Current?.User.IsInRole("CEO"))
++ @if (Html.HasPermission(Permissions.CanPublishArticles))
+{
+    <button type="button">Publish</button>
+    <!-- Look at all that duplicated code! This is very verbose. -->
+}
+
+
+- @if (HttpContext.Current?.User.IsInRole("Admin") 
+- || HttpContext.Current?.User.IsInRole("Editor") 
+- || HttpContext.Current?.User.IsInRole("CEO")
+- || HttpContext.Current?.User.IsInRole("Writer"))
++ @if (Html.HasPermission(Permissions.CanEditArticles))
+{
+    <button type="button">Edit</button>
+}
+
+
+- @if (HttpContext.Current?.User.IsInRole("Admin") == false)
++ @if (Html.HasPermission(Permissions.CanDoTheThing) == false)
+{
+    <span>I'm sorry Dave. I can't let you do that, Dave.</span>
+}
+
+```
+```diff
+// C# Controller 
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+- [Authorize(Roles = "Admin,Editor,CEO")]
++ [HasPermission(Permissions.CanPublishArticles)]
+public ActionResult Publish(SomeViewModel model)
+{
+    // Some publishing logic here
+    return View();
+}
+
+
+[HttpGet]
+- [Authorize(Roles = "Admin,Editor,CEO,Writer")]
++ [HasPermission(Permissions.CanEditArticles)]
+public ActionResult Edit(int id)
+{
+    return View();
+}
+
+```
+
+```diff
+// From somewhere in the C# code.
+- if (!(HttpContext.Current?.User.IsInRole("Admin") 
+- || HttpContext.Current?.User.IsInRole("Accountant") 
+- || HttpContext.Current?.User.IsInRole("Sales Manager") 
+- || HttpContext.Current?.User.IsInRole("CEO")))
++ if (!Permissions.HasPermission(Permissions.CanViewSalesData))
+{
+    // have some kind of unauthorized response here, or 
+    // perform unauthorized type logic
+}
+```
