@@ -5,21 +5,7 @@ So how do we get...
 | ------ | ------ |
 | ![Messy Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/wires-messy.jpg) | ![Organized Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/wires-organized.jpg) |
 
-
-
-The first snippet shows what people usually do when checking if a user can access a feature. When systems scale this approach gets messy. It's too verbose, it isn't clear which feature is being unlocked, and it is prone to human error. The second snippet shows a better alternative. In the second snippet we immediately know which feature is being unlocked. And we don't have to worry about remembering which roles have access to which features. The centralized configuration file takes care of all that for us. 
-
-
-
-The second snippet shows why the default solution needs improvement. It's too verbose. It isn't clear what feature is being unlocked. And if you ever want to know what the difference is between an "Admin" and an "Editor" you will have to 
-Before T4-Permissions we would scan through code files looking for 
-
-
-It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a single configuration file. 
-
-
-
-
+### Try out the T4-Permissions system. ###
 
 ```diff
 <!-- CSHTML -->
@@ -30,7 +16,9 @@ It makes it easy to add new roles, or see what each role is capable of; all from
 + @if (Html.HasPermission(Permissions.CanPublishArticles))
 {
     <button type="button">Publish</button>
-    <!-- Look at all that duplicated code! This is very verbose. -->
+    <!-- 
+        We shouldn't have to worry about the ROLEs. We should only have to worry about the PERMISSIONS. 
+    -->
 }
 
 
@@ -66,12 +54,13 @@ public ActionResult Publish(SomeViewModel model)
 
 
 [HttpGet]
-- [Authorize(Roles = "Admin,Editor,CEO,Writer")]
+- [Authorize(Roles = "Admin,Editor,CEO,Writer,Financial Admin 2, Tech Support, Tech Support 2, Super Admin, Assistant")]
 + [HasPermission(Permissions.CanEditArticles)]
 public ActionResult Edit(int id)
 {
     return View();
 }
+
 
 ```
 
@@ -87,3 +76,11 @@ public ActionResult Edit(int id)
     // perform unauthorized type logic
 }
 ```
+
+In the new snippets we immediately know which features are being unlocked. And we don't have to worry about remembering which roles have access to which features. The centralized configuration file will take care of all that for us. Also, if you ever want to know what the difference is between an "Admin" and an "Editor" you can just check the central configuration file.
+
+It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a single configuration file. 
+
+
+
+
