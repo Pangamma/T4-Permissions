@@ -97,6 +97,8 @@ if (!(HttpContext.Current?.User.IsInRole("Admin")
     // perform unauthorized type logic
 }
 ```
+### Random code ###
+![Horrible code](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/terrible-code-1.png)
 
 ### TL;DR ###
 ![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/duplicate-code-duplicate-code-everywhere.jpg)
