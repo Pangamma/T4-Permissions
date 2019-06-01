@@ -67,6 +67,15 @@ I was browsing through the code one day when I realized our developers were stru
 
 [HttpPost]
 [ValidateAntiForgeryToken]
+[Authorize(Roles = "Admin,Editor,CEO, Writer, Financial Admin 2, Tech Support, Tech Support 2, Super Admin, Assistant, Jimmy")]
+public ActionResult Preview(SomeViewModel model)
+{
+    // Some publishing logic here
+    return View();
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
 [Authorize(Roles = "Admin,Editor,CEO")]
 public ActionResult Publish(SomeViewModel model)
 {
