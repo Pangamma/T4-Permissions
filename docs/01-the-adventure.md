@@ -71,11 +71,11 @@ if (!(HttpContext.Current?.User.IsInRole("Admin")
     // perform unauthorized type logic
 }
 ```
-### Random code ###
-![Horrible code](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/terrible-code-1.png)
+### Random Code ###
+![Horrible code](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/terrible-code-1.png)
 
 ### TL;DR ###
-![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/bad-code-bad.jpg)
+![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/bad-code-bad.jpg)
 
 * Does not scale well
 * Easy to miss things as system expands
@@ -93,7 +93,7 @@ As you're going through this hoard of info <b>the intentions of each if/else blo
 ### So the code is a mess. It's difficult to maintain, confusing, and ambiguous. ###
 ### Let's fix it. ###
 
-![Tony Stark with a wrench](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/lets-fix-it-2.png)
+![Tony Stark with a wrench](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/lets-fix-it-2.png)
 
 
 # The Solution #
@@ -101,7 +101,7 @@ So how do we get...
 
 | From here | To here? |
 | ------ | ------ |
-| ![Messy Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/wires-messy.jpg) | ![Organized Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/wires-organized.jpg) |
+| ![Messy Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-messy.jpg) | ![Organized Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-organized.jpg) |
 
 We need a solution that is easy to use or else the rest of the team won't want to actually use it. Developers usually take the path of least resistance. So take some ideas from the gaming scene. 
 
