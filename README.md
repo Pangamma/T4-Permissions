@@ -110,12 +110,16 @@ if (!(HttpContext.Current?.User.IsInRole("Admin")
 ![Horrible code](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/terrible-code-1.png)
 
 ### TL;DR ###
-![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/duplicate-code-duplicate-code-everywhere.jpg)
+![Duplicate code. Duplicate code everywhere.](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/bad-code-bad.jpg)
 
 * Does not scale well
 * Easy to miss things as system expands
 * Could add variables to the view model, but the “OR” logic still remains.
 * Very verbose
+* No easy way to figure out what each role can do.
+* No easy way to add new roles and ensure they have all the permissions they need. 
+* Looks messy
+
 
 Every time we wanted to add a new feature, we were having to add a new set of these role lists. The lists get longer and longer, and the risk of any of the checks falling out of sync increases every time. Then business asks for a new role with all the features of <b>X</b>, but also a new feaure called <b>Z</b>. Should be easy except <b>how do you even know what X can do?</b> The only way to figure it out is to do a <b>full text search</b> on the entire solution for any mention of that role and then making sure you're adding the new role to all of those places. 
 
