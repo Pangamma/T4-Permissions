@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+The tempurature is currently X degrees F.
+
+@if (Permissions.HasPermission(Permissions.CanAdjustTempurature))
+{
+    using (Html.BeginForm("SetTempurature", "Tempurature", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        //  TextBox with inputs  ...
+        // ....
+        // ....
+
+        <button type="submit">Submit Changes</button>
+    }
+}
