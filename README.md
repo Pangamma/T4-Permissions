@@ -34,4 +34,4 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
 * Uses an Enum pattern so developers can take advantage of autocomplete in their IDE’s.
 
 ## Solving the RBAC problem ##
-[The story of how and why the T4 system was created](docs/01-the-adventure)
+[The story of how and why the T4 system was created](docs/01-the-adventure.md)
