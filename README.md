@@ -111,8 +111,7 @@ Every time we wanted to add a new feature, we were having to add a new set of th
 As you're going through this hoard of info <b>the intentions of each if/else block are not 100% clear</b>. You have to read through the inner logic to fully understand. "Why is THIS role listed and not this OTHER role?" If group X is more powerful than group Z, should group X be able to access this feature as well? Why was it not included? Was group X added <b>AFTER</b> group Z and the other devs forgot to add the right permissions? <b>You start questioning if code is there on purpose or by mistake.</b> Especially if no one has a full (updated) list of what each role is supposed to be able to do. 
 
 ### So the code is a mess. It's difficult to maintain, confusing, and ambiguous. ###
-
-[Let's fix it.](fixing-the-issues.md)
+### Let's fix it. ###
 
 ![Tony Stark with a wrench](https://raw.githubusercontent.com/Pangamma/T4-Permissions/docs/docs/includes/lets-fix-it-2.png)
 
