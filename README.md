@@ -35,3 +35,6 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
 
 ## Solving the RBAC problem ##
 [The story of how and why the T4 system was created](docs/01-finding-problem-solving-solution.md)
+
+## Installing T4-Permissions in your own project ##
+[Download](https://github.com/Pangamma/T4-Permissions/blob/master/docs/Article-T4-Permissions.docx?raw=true) [View Online](https://drive.google.com/file/d/1yRXrL8dZZngt1U7UTdUEU2qj5n4uhcAO/view?usp=sharing) 
