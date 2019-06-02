@@ -131,7 +131,8 @@ To CHECK a permission we usually do something like player.hasPermission("Essenti
 {
     <button type="button">Publish</button>
     <!-- 
-        We shouldn't have to worry about the ROLEs. We should only have to worry about the PERMISSIONS. 
+        We shouldn't have to worry about the ROLEs. 
+        We should only have to worry about the PERMISSIONS. 
     -->
 }
 
