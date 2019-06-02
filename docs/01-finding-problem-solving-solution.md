@@ -119,7 +119,7 @@ To CHECK a permission we usually do something like player.hasPermission("Essenti
 | ---- | ----- |
 | ![roles](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/auth-flow-roles.png) | ![permissions](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/auth-flow-permissions.png) |
 
-### After some changes, the new code looks like this: ###
+## After some changes, the new code looks like this: ##
 
 ```diff
 <!-- CSHTML -->
@@ -195,5 +195,8 @@ In the new snippets we immediately know which features are being unlocked. And w
 
 It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a single configuration file. 
 
-Next we can take a look at how the configuration works.
+## Next we can take a look at how the configuration works. ##
 ![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-input.png)
+
+![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-output.png)
+
