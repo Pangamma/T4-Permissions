@@ -96,6 +96,9 @@ As you're going through this hoard of info <b>the intentions of each if/else blo
 ![Tony Stark with a wrench](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/lets-fix-it-2.png)
 
 
+
+
+
 # The Solution #
 So how do we get...
 
@@ -103,11 +106,20 @@ So how do we get...
 | ------ | ------ |
 | ![Messy Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-messy.jpg) | ![Organized Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-organized.jpg) |
 
-We need a solution that is easy to use or else the rest of the team won't want to actually use it. Developers usually take the path of least resistance. So take some ideas from the gaming scene. 
+We need a solution that is easy to use or else the rest of the team won't want to actually use it. Developers usually take the path of least resistance. So take some ideas from the gaming scene. In the gaming scene there is a concept known as permissions. 
+
+![permissions yaml example](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/permissions-yaml-config.png)
+
+To give a user the ability to teleport you would give them the "<b>Essentials.teleport.self</b>" permission node. To give a user the ability to teleport themselves and others you could give them <b>Essentials.teleport.self</b> and <b>Essentials.teleport.others</b> or you could simplify it and give them <b>Essentials.teleport.*</b>. This makes it easier to grant a ton of permissions really quickly. It also helps to group similar permission nodes together. 
+
+To CHECK a permission we usually do something like player.hasPermission("Essentials.teleport.others"). Or we use an enum or a constant to make sure we're using the right permission node value. So I wante to make that happen in the T4 permission system. In order to do that, we need to change how we're doing authentication. These two flowcharts show where we will need to make our changes.
 
 
+| Before | After |
+| ---- | ----- |
+| ![roles](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/auth-flow-roles.png) | ![permissions](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/auth-flow-permissions.png) |
 
-### Try out the T4-Permissions system. ###
+### After some changes, the new code looks like this: ###
 
 ```diff
 <!-- CSHTML -->
@@ -182,3 +194,5 @@ public ActionResult Edit(int id)
 In the new snippets we immediately know which features are being unlocked. And we don't have to worry about remembering which roles have access to which features. The centralized configuration file will take care of all that for us. Also, if you ever want to know what the difference is between an "Admin" and an "Editor" you can just check the central configuration file.
 
 It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a single configuration file. 
+
+Next we can take a look at how the configuration works.
