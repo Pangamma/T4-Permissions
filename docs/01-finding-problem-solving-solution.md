@@ -201,5 +201,6 @@ The config on the left generates the C# class on the right.
 
 | Input | Output |
 | ----- | ------ |
+| [View File](https://github.com/Pangamma/T4-Permissions/blob/master/code/Finished_Version/ImagineBrownBag/App_Start/Permissions.tt) | [View File](https://github.com/Pangamma/T4-Permissions/blob/master/code/Finished_Version/ImagineBrownBag/App_Start/Permissions.cs)
 | ![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-input.png) | ![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-output.png) |
 
