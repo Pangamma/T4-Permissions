@@ -193,10 +193,13 @@ public ActionResult Edit(int id)
 
 In the new snippets we immediately know which features are being unlocked. And we don't have to worry about remembering which roles have access to which features. The centralized configuration file will take care of all that for us. Also, if you ever want to know what the difference is between an "Admin" and an "Editor" you can just check the central configuration file.
 
-It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a single configuration file. 
+It makes it easy to add new roles, or see what each role is capable of; all from viewing and editing a central configuration file. 
 
 ## Next we can take a look at how the configuration works. ##
-![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-input.png)
 
-![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-output.png)
+The config on the left generates the C# class on the right. 
+
+| Input | Output |
+| ----- | ------ |
+| ![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-input.png) | ![config input](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/config-output.png) |
 
