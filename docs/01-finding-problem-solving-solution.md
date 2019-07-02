@@ -86,7 +86,7 @@ if (!(HttpContext.Current?.User.IsInRole("Admin")
 * Looks messy
 
 
-Every time we wanted to add a new feature, we were having to add a new set of these role lists. The lists get longer and longer, and the risk of any of the checks falling out of sync increases every time. Then business asks for a new role with all the features of <b>X</b>, but also a new feaure called <b>Z</b>. Should be easy except <b>how do you even know what X can do?</b> The only way to figure it out is to do a <b>full text search</b> on the entire solution for any mention of that role and then making sure you're adding the new role to all of those places. 
+Every time we wanted to add a new feature, we were having to add a new set of these role lists. The lists get longer and longer, and the risk of any of the checks falling out of sync increases every time. Then business asks for a new role with all the features of <b>X</b>, but also a new feaure called <b>Z</b>. Should be easy except <b>how do you even know what X can do?</b> The only way to figure it out is to do a <b>full text search</b> on the entire solution for any mention of that role and then make sure to add the new role to all of those places.
 
 As you're going through this hoard of info <b>the intentions of each if/else block are not 100% clear</b>. You have to read through the inner logic to fully understand. "Why is THIS role listed and not this OTHER role?" If group X is more powerful than group Z, should group X be able to access this feature as well? Why was it not included? Was group X added <b>AFTER</b> group Z and the other devs forgot to add the right permissions? <b>You start questioning if code is there on purpose or by mistake.</b> Especially if no one has a full (updated) list of what each role is supposed to be able to do. 
 
@@ -106,13 +106,13 @@ So how do we get...
 | ------ | ------ |
 | ![Messy Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-messy.jpg) | ![Organized Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-organized.jpg) |
 
-We need a solution that is easy to use or else the rest of the team won't want to actually use it. Developers usually take the path of least resistance. So take some ideas from the gaming scene. In the gaming scene there is a concept known as permissions. 
+We need a solution that is easy to use or else the rest of the team won't want to actually use it. Developers usually take the path of least resistance. So <b>take some ideas from the gaming scene</b>. In the gaming scene there is a concept known as permissions. 
 
 ![permissions yaml example](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/permissions-yaml-config.png)
 
 To give a user the ability to teleport you would give them the "<b>Essentials.teleport.self</b>" permission node. To give a user the ability to teleport themselves and others you could give them <b>Essentials.teleport.self</b> and <b>Essentials.teleport.others</b> or you could simplify it and give them <b>Essentials.teleport.*</b>. This makes it easier to grant a ton of permissions really quickly. It also helps to group similar permission nodes together. 
 
-To CHECK a permission we usually do something like player.hasPermission("Essentials.teleport.others"). Or we use an enum or a constant to make sure we're using the right permission node value. So I wante to make that happen in the T4 permission system. In order to do that, we need to change how we're doing authentication. These two flowcharts show where we will need to make our changes.
+To CHECK a permission we usually do something like player.hasPermission("Essentials.teleport.others"). Or we use an enum or a constant to make sure we're using the right permission node value. So I wanted to make that happen in the T4 permission system. In order to do that, we need to change how we're doing authentication. These two flowcharts show where we will need to make our changes.
 
 
 | Before | After |
