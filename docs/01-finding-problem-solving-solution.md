@@ -106,7 +106,7 @@ So how do we get...
 | ------ | ------ |
 | ![Messy Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-messy.jpg) | ![Organized Wires](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/wires-organized.jpg) |
 
-We need a solution that is easy to use or else the rest of the team won't want to actually use it. Developers usually take the path of least resistance. So <b>take some ideas from the gaming scene</b>. In the gaming scene there is a concept known as permissions. 
+We need a solution that is __easy to use or else the rest of the team won't want to actually use it__. Developers usually take the path of least resistance. So <b>take some ideas from the gaming scene</b>. In the gaming scene there is a concept known as permissions. 
 
 ![permissions yaml example](https://raw.githubusercontent.com/Pangamma/T4-Permissions/master/docs/includes/permissions-yaml-config.png)
 
