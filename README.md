@@ -38,3 +38,47 @@ Before T4-Permissions, I was seeing a lot of bad code and it was clear that we n
 
 ## Installing T4-Permissions in your own project ##
 [Download](https://github.com/Pangamma/T4-Permissions/blob/master/docs/Article-T4-Permissions.docx?raw=true) / [View Online](https://docs.google.com/document/d/1yRXrL8dZZngt1U7UTdUEU2qj5n4uhcAO/edit) 
+
+
+## Before and after using T4-Permissions: ##
+
+```diff
+<!-- CSHTML -->
+
+- @if (HttpContext.Current?.User.IsInRole("Admin") 
+- || HttpContext.Current?.User.IsInRole("Editor") 
+- || HttpContext.Current?.User.IsInRole("CEO"))
++ @if (Html.HasPermission(Permissions.CanPublishArticles))
+{
+    <button type="button">Publish</button>
+    <!-- 
+        We shouldn't have to worry about the ROLEs. 
+        We should only have to worry about the PERMISSIONS. 
+    -->
+}
+```
+```diff
+// C# Controller 
+
+[HttpGet]
+- [Authorize(Roles = "Admin,Editor,CEO,Writer,Financial Admin 2, Tech Support, Tech Support 2, Super Admin, Assistant")]
++ [HasPermission(Permissions.CanEditArticles)]
+public ActionResult Edit(int id)
+{
+    return View();
+}
+
+```
+
+```diff
+// From somewhere in the C# code.
+- if (!(HttpContext.Current?.User.IsInRole("Admin") 
+- || HttpContext.Current?.User.IsInRole("Accountant") 
+- || HttpContext.Current?.User.IsInRole("Sales Manager") 
+- || HttpContext.Current?.User.IsInRole("CEO")))
++ if (!Permissions.HasPermission(Permissions.CanViewSalesData))
+{
+    // have some kind of unauthorized response here, or 
+    // perform unauthorized type logic
+}
+```
